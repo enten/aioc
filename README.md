@@ -56,7 +56,7 @@ exports['@factory'] = ([foo, bar]) => new Bar(foo, bar)
 // ioc.js
 const AIOC = require('aioc')
 
-module.exports = AIOC()
+module.exports = new AIOC()
   .pub('foo', './foo')
   .pub('bar', './bar')
   .pub('foobar', './foobar')
@@ -66,8 +66,9 @@ module.exports = AIOC()
 // index.js
 const ioc = require('./ioc')
 
-ioc.get('foobar')
-  .sayFoobar()
+const foobar = ioc.get('foobar')
+
+foobar.sayFoobar()
 
 // $ node index.js
 // foo
@@ -188,7 +189,7 @@ Unpublish a dependency.
 Example :
 
 ```javascript
-ioc.unpub('foo')`
+ioc.unpub('foo')
 ```
 
 ### use (name, ...args)
