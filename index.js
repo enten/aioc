@@ -6,8 +6,8 @@ class AIOC {
     this.args = {}
     this.cache = {}
     this.depsGraph = new DepGraph
-    this.depsKey = depsKey || ADSL.defaultDepsKey
-    this.factoryKey = factoryKey || ADSL.defaultFactoryKey
+    this.depsKey = depsKey || AIOC.defaultDepsKey
+    this.factoryKey = factoryKey || AIOC.defaultFactoryKey
     this.registry = {}
   }
 
