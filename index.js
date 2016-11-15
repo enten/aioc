@@ -37,9 +37,9 @@ class AIOC {
     if (!factory) {
       const path = this.registry[name]
       const exportsObj = require(path)
-      factory = exportsObj[this.factoryKey]
+      factory = exportsObj[this.factoryKey] || (() => exportsObj)
       if (typeof factory !== 'function') {
-        throw Error(`Factory not found: ${name} ${path}`)
+        throw Error(`${this.factoryKey} must be a function: ${name} ${path}`)
       }
       const deps = [].concat(exportsObj[this.depsKey] || [])
       this.depsGraph.setNodeData(name, factory)
