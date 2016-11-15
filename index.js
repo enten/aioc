@@ -60,7 +60,7 @@ class AIOC {
     }
     const factory = this.depsGraph.getNodeData(name)
     const deps = this.depsGraph.dependenciesOf(name).map((dep) => this.get(dep))
-    const mod = factory.apply(this, [deps].concat(this.args[name] || []))
+    const mod = factory.apply(this, [deps.concat(this)].concat(this.args[name] || []))
     return (this.cache[name] = mod)
   }
 
