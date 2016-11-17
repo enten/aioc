@@ -68,6 +68,7 @@ class AIOC {
     if (this.registry[name]) {
       throw Error(`Dependency already exists: ${name}`)
     }
+    path = path || name
     path = path.startsWith('.') ? resolvePath(path) : path
     this.registry[name] = require.resolve(path)
     return this
