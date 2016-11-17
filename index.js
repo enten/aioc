@@ -5,8 +5,8 @@ class AIOC {
   constructor ({depsKey, factoryKey} = {}) {
     this.args = {}
     this.cache = {}
-    this.depsGraph = new DepGraph
-    this.depsKey = depsKey || AIOC.defaultDepsKey
+    this.depsGraph = new DepGraph()
+    this.depsKey = depsKey || AIOC.defaultDepsKey
     this.factoryKey = factoryKey || AIOC.defaultFactoryKey
     this.registry = {}
   }
@@ -51,7 +51,7 @@ class AIOC {
     return factory
   }
 
-  get(name) {
+  get (name) {
     if (this.cache.hasOwnProperty(name)) {
       return this.cache[name]
     }
@@ -64,7 +64,7 @@ class AIOC {
     return (this.cache[name] = mod)
   }
 
-  pub(name, path) {
+  pub (name, path) {
     if (this.registry[name]) {
       throw Error(`Dependency already exists: ${name}`)
     }
@@ -73,7 +73,7 @@ class AIOC {
     return this
   }
 
-  unpub(name) {
+  unpub (name) {
     this.flush(name)
     this.depsGraph.removeNode(name)
     delete this.registry[name]
