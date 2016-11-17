@@ -194,4 +194,6 @@ ioc.unpub('foo')
 
 ### use (name, ...args)
 
+## License
+
 MIT
