@@ -91,5 +91,4 @@ AIOC.defaultDepsKey = '@deps'
 AIOC.defaultFactoryKey = '@factory'
 
 module.exports = AIOC
-
 // 94!
